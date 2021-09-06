@@ -10,7 +10,7 @@ class Opciones extends Component {
             </div>
             <div className="opcion">
                 <button className="botones" value="B" onClick={this.props.handleClick}>B</button>
-                <h2>{this.props.opcionA}</h2>
+                <h2>{this.props.opcionB}</h2>
             </div>
         </div>
         )
