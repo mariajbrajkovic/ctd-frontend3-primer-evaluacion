@@ -1,78 +1,26 @@
-**Primer evaluación entregable de Front-end III para C.T.D.**
+# Anotaciones sobre Primer evaluación entregable de Front-end III para C.T.D.
+**María Julia Brajkovic**
 
- - Pueden ver el deploy de la aplicación en:
-   https://nostalgic-wilson-b2a04e.netlify.app/ 
- - Para descargar React    developer tools:   
-   https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
-   
- - Para utilizarlo: Ctrl + Shift + i  => Components:
-![Ubicación de Components](https://github.com/Ivanszs/ctd-frontend3-primer-evaluacion/blob/main/reactComponents.PNG?raw=true)
+Razonamientos llevados adelante para la creación del código:
 
-¡Hola! Llegó el momento de poner a prueba los conocimientos adquiridos. Esta es la oportunidad para validar tu aprendizaje hasta el momento. Se trata de una evaluación entregable, donde tendrás la posibilidad de resolver el trabajo por cuenta propia y entregarlo antes de la fecha límite.
+- Constructor:
+  Creo el constructor. Yo tengo que saber la selección anterior para mostrarla y sumarla al historial, y por dónde va la historia para ver por cual índice del data debería continuar, por eso el contador y la seleccionAnterior.
+  Además hacemos uso de props y de estados (como lo pide la consigna).
 
-## Recordá: La fecha límite de entrega es el viernes 10, 23:59 hs Argentina, 21:59 hs Colombia.
+- Como parte del ciclo de vida, decido usar update para que vaya modificando el historial a medida que se va actualizando la seleccionAnterior.
 
-**¿Cuáles son los temas que no me pueden faltar?**
+- Quiero manejar el evento click del formulario, entonces uso handleClick. Voy a querer que, dependiendo de la selección, el contador se vaya moviendo según el índice en el json. Inicialmente había cometido el error de recorrerlo entero, pero lo solucioné dándole diferentes valores al contador, de manera que no pase por todos los índices.
 
--   Utilizar CRA para crear una aplicación.
-    
--   Estructura de archivos y carpetas en React.
-    
--   Componentes de clase
-    
--   Props.
-    
--   Estados
-    
--   Ciclo de vida.
-    
+:exclamation: Si elijo A pero previamente no lo había elegido, corresponde pasar al índice siguiente, por lo cual le sumo 1.
 
-¿A qué nos referimos con que no te pueden faltar? Bueno la aplicación que queremos que hagas puede realizarse de incontables formas, pero vamos a hacerla demostrando todo lo que fuimos aprendiendo hasta ahora.
+:exclamation: Si elijo A y previamente lo había elegido, corresponde pasar dos índices, por lo cual le sumo 2.
 
-**Consigna**
+:exclamation: Si elijo B pero previamente había elegido A, corresponde pasar tres índices (ejemplo: si estaba en 2a, debo pasar a 2b, 3a y por último 3b, lo cual da 3), por lo cual le sumo 3.
 
-Entonces, se requiere que en algún punto del código se utilicen:
+:exclamation: Si elijo B y previamente lo había elegido o no había elegido nada (al inicio), corresponde pasar por dos índices, por lo cual le sumo 2.
 
--   Props.
-    
--   Estados mediante this.state y setState.
-    
--   Algún método del ciclo de vida.
-    
+- Creo 3 clases: una que tenga la información principal (Principal), otra que contendrá las opciones (Opciones), y una tercera que contendrá el historial (Anteriores).
 
-En caso que necesites crear un componente que tenga estados, necesariamente deberás utilizar componentes de clase. En caso de tener alguno que no tenga la necesidad de utilizar estados, podés utilizar componentes funcionales.
+- Renderizo utilizando las clases creadas.
 
-**La app**
-
--   La aplicación que vas a crear se trata de un “Elige tu propia aventura”.
-    
--   Te presentaremos un texto que describa una situación y dos opciones (A o B) para reaccionar ante la situación. Cada una de estas opciones te llevará por el recorrido de la historia de una forma u otra, dependiendo de tus elecciones.
-    
--   Dentro de la carpeta "components", encontrarás un archivo llamado "data.json" en el cual verás un array de objetos, que es el que se utiliza para el texto de la historia así como también para las opciones.
-    
--   Como podrás ver, se trata de una historia prácticamente lineal. Si elegís una opción, esta te dará un texto único. Sin embargo, tendrás las mismas consecuencias de si hubieras elegido la otra opción. Esto es así para evitar tener un JSON extremadamente confuso, con el cual tengas que perder mucho tiempo descifrando.
-    
-
-**Otras funcionalidades**
-
--   Tendrás la posibilidad de realizar funcionalidades extra que te darán la posibilidad de llegar a la nota máxima. Las mismas son las siguientes:
-    
-
--   A medida que hagas elecciones "A" o "B", estas se irán registrando de la siguiente manera:
-    
-
--   Se muestra en pantalla la última elección que realizó el usuario (por ejemplo, "Selección previa: A").
-    
--   Se muestran todas las selecciones anteriores (por ejemplo, "Anteriores: A B A").
-    
-
--   Tendrás a disposición un archivo llamado  index.CSS dentro de la carpeta src para dejar la app algo más estética. Recordá asignar className a los distintos elementos que ahí se nombran. Igualmente el CSS no es algo que se evaluará, por lo tanto es completamente opcional.
-    
-
-**Entrega**
-
-La app se tiene que entregar en un repositorio de GitHub, mediante un formulario que se te entregará posteriormente.
-
--   Tendrás tiempo hasta el **viernes 10, 23:59 hs Argentina, 21:59 hs Colombia.**
-    
-- **Cualquier modificación en el repositorio de GitHub, posterior al tiempo límite establecido, no será evaluada.**
+- Se respeta el formato CSS pedido.
